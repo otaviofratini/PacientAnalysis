@@ -1,38 +1,71 @@
 <?php
+    require_once 'class\paciente.class.php'; //caminho do arquivo no meu computador
     
     $file = file('gerint_solicitacoes_mod.csv');
 
     foreach($file as $k){
         $csv[] = explode(';',$k);
     }
-    echo '<pre>';
-    //var_dump($csv); | comentei para fazer os testes de qual informação consta nos índices
+    //echo '<pre>';
+
+
+
+    $count = sizeof($csv);
+    //echo $count;
+   
+
+    $arrayPacientes = array();
+    for($i=1;$i<$count;$i++){
+        //echo "linha $i</br>";
+
+        //organização das colunas da Matriz
+        $data_extracao = $csv[$i][0];   
+        $id_usuario = $csv[$i][1];  
+        $situacao = $csv[$i][2];
+        $central_regulacao_origem = $csv[$i][3];
+        $data_solicitacao = $csv[$i][4];
+        $sexo = $csv[$i][5];
+        $idade = $csv[$i][6];  
+        $municipio_residencia = $csv[$i][7];
+        $solicitante = $csv[$i][8];
+        $municipio_solicitante = $csv[$i][9];
+        $codigo_cid = $csv[$i][10];
+        $carater = $csv[$i][11];
+        $tipo_internacao = $csv[$i][12];
+        $tipo_leito = $csv[$i][13];
+        $data_autorizacao = $csv[$i][14];
+        $data_internacao = $csv[$i][15];
+        $data_alta = $csv[$i][16];
+        $executante = $csv[$i][17];
+        $horas_na_fila = $csv[$i][18];   
     
-    //organização das colunas da Matriz
+     $paciente = new Paciente(
+            $data_extracao,
+            $id_usuario,
+            $situacao,
+            $central_regulacao_origem,
+            $data_solicitacao,
+            $sexo,
+            $idade,
+            $municipio_residencia,
+            $solicitante,
+            $municipio_solicitante,
+            $codigo_cid,
+            $carater,
+            $tipo_internacao,
+            $tipo_leito,
+            $data_autorizacao,
+            $data_internacao,
+            $data_alta,
+            $executante,
+            $horas_na_fila,
+        );
+        array_push($arrayPacientes, $paciente);
 
-    var_dump($csv[0][1]);   //id_usuario
-    var_dump($csv[0][2]);   //situacao
-    var_dump($csv[0][3]);   //central_regulacao_origem
-    var_dump($csv[0][4]);   //data_solicitacao
-    var_dump($csv[0][5]);   //sexo
-    var_dump($csv[0][6]);   //idade
-    var_dump($csv[0][7]);   //municipio_residencia
-    var_dump($csv[0][8]);   //solicitante
-    var_dump($csv[0][9]);   //municipio_solicitante
-    var_dump($csv[0][10]);  //codigo_cid
-    var_dump($csv[0][11]);  //carater
-    var_dump($csv[0][12]);  //tipo_internacao
-    var_dump($csv[0][13]);  //tipo_leito
-    var_dump($csv[0][14]);  //data_autorizacao
-    var_dump($csv[0][15]);  //data_internacao
-    var_dump($csv[0][16]);  //data_alta
-    var_dump($csv[0][17]);  //executante
-    var_dump($csv[0][18]);  //horas_na_fila
+        //var_dump($csv[$i][1]);  //percorrer em uma determinada coluna até a última linha
+    }
 
-    $ns = trim($csv[50998][18]); //retirar o espaço em branco
-    var_dump($ns); //limite da Matriz
 
-    echo '</pre>';
     
 
 ?>
