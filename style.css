@@ -1,0 +1,56 @@
+body{
+	margin:0;
+	padding:0;
+	width: 100%;
+    height: auto;
+}
+.form{  
+    width: 50%;
+	height: 50%;
+
+}
+.campo-form{
+	width: 600px;
+	padding: 16px 16px;
+    margin-bottom: 200px;
+    text-align: center;
+    position:relative;
+    top:30%;
+    left:30%;
+    overflow: hidden;
+    border: 5px;
+    border-radius: 30px;
+}
+.button{
+	margin-top: 10px;;
+    width: 400px;
+	padding: 5px 20px;
+	position:relative;
+	font-family: 'Notable', sans-serif;
+  	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	outline: #FFFFFF;
+	color: rgb(0, 0, 0);
+	background-color: #8c00ff;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 7px rgb(17, 17, 17);
+}
+.button:hover {
+    background-color: #5302af;
+}
+.button:active {
+	background-color: #5302af;
+	box-shadow: 0 5px rgb(68, 68, 68);
+	transform: translateY(4px);
+}
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: grey;
+	text-align: center;
+  }
